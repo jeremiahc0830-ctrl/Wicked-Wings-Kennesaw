@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wicked Wings Kennesaw</title>
+    <!-- Google Fonts for edgy sports-bar typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --primary-orange: #FF5722;
+            --accent-red: #D32F2F;
+            --text-light: #F5F5F5;
+            --text-muted: #AAAAAA;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); color: var(--text-light); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+        /* Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(18, 18, 18, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #222;
+        }
+        .logo { font-family: 'Oswald', sans-serif; font-size: 26px; color: var(--primary-orange); letter-spacing: 1px; }
+        nav a { color: var(--text-light); text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 14px; text-transform: uppercase; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-orange); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+        }
+        .hero h1 { font-family: 'Oswald', sans-serif; font-size: 4rem; color: #FFFFFF; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
+        .hero h1 span { color: var(--primary-orange); }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; color: var(--text-muted); }
+        
+        .btn-container { display: flex; gap: 15px; }
+        .btn { padding: 12px 28px; font-weight: 700; text-decoration: none; text-transform: uppercase; border-radius: 4px; transition: 0.3s; font-size: 14px; letter-spacing: 1px; }
+        .btn-primary { background-color: var(--primary-orange); color: #FFFFFF; }
+        .btn-primary:hover { background-color: #e0481b; }
+        .btn-outline { border: 2px solid var(--text-light); color: var(--text-light); }
+        .btn-outline:hover { background-color: var(--text-light); color: var(--bg-dark); }
+
+        /* Menu Highlights Section */
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { font-family: 'Oswald', sans-serif; font-size: 2.5rem; text-align: center; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; }
+        .section-title span { color: var(--primary-orange); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background-color: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid #2a2a2a; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-content { padding: 25px; }
+        .card-content h3 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 10px; color: var(--primary-orange); }
+        .card-content p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Footer / Info Section */
+        footer { background-color: #0a0a0a; padding: 40px 20px; text-align: center; border-top: 2px solid #222; margin-top: 60px; }
+        footer p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Wicked Wings</div>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#specials">Specials</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Fuel Your Fire. <span>Bold Flavors.</span></h1>
+        <p>Kennesaw’s ultimate spot for killer wings, ice-cold craft beers, and an electric game-day atmosphere.</p>
+        <div class="btn-container">
+            <a href="#menu" class="btn btn-primary">View Menu</a>
+            <a href="#about" class="btn btn-outline">Location & Info</a>
+        </div>
+    </section>
+
+    <!-- Menu Highlights -->
+    <section id="menu" class="section">
+        <h2 class="section-title">Crowd <span>Favorites</span></h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Signature Wings</h3>
+                    <p>Tossed in your choice of killer sauces, from Wet Lemon Pepper and Korean BBQ to fiery Chipotle Citrus.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Loaded Appetizers</h3>
+                    <p>Crispy cheese curds, loaded fries, and mouth-watering bites crafted to pair with your game-day drinks.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Craft Beers & Drinks</h3>
+                    <p>A rotating tap list of craft brews and signature specialty cocktails to keep the energy high.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <p><strong>Wicked Wings Kennesaw</strong></p>
+        <p>4430 Wade Green Rd, Kennesaw, GA 30144 | Open Daily at 11:00 AM</p>
+        <p style="margin-top: 20px; font-size: 0.8rem; color: #666;">Built for local food lovers & sports fans.</p>
+    </footer>
+
+</body>
+</html>

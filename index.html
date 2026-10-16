@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wicked Wings Kennesaw | Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #121212;
+  --bg-card: #1e1e1e;
+  --orange: #ff5722;
+  --text: #f5f5f5;
+  --muted: #b5b5b5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+body {
+  background: var(--bg-dark);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+  line-height: 1.6;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 17px clamp(18px, 5vw, 60px);
+  background: rgba(18,18,18,.97);
+  border-bottom: 2px solid #292929;
+}
+.logo {
+  font-family: Oswald, sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 1px;
+}
+nav { display: flex; gap: 22px; flex-wrap: wrap; }
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+nav a:hover { color: var(--orange); }
+.hero {
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 55px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.84)),
+    url('https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=1920&q=80')
+    center/cover;
+}
+.hero h1 {
+  font: 700 clamp(2.4rem,6vw,4.3rem)/1.1 Oswald,sans-serif;
+  text-transform: uppercase;
+}
+.hero h1 span, .section-title span { color: var(--orange); }
+.hero p { max-width: 650px; margin: 18px 0; color: #ddd; }
+.hero .jump {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 11px 22px;
+  background: var(--orange);
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.menu-wrap { max-width: 1200px; margin: auto; padding: 54px 20px 80px; }
+.section-title {
+  text-align: center;
+  font: 600 clamp(2rem,4vw,2.7rem) Oswald,sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.intro { text-align: center; color: var(--muted); margin-bottom: 28px; }
+.tabs {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 35px;
+}
+.tab {
+  border: 1px solid #444;
+  background: #202020;
+  color: #eee;
+  padding: 10px 16px;
+  border-radius: 5px;
+  font: 700 12px Inter,sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tab:hover, .tab.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: white;
+}
+.category-heading {
+  font: 600 1.8rem Oswald,sans-serif;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--orange);
+  padding-bottom: 9px;
+  margin: 36px 0 20px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,290px),1fr));
+  gap: 17px;
+}
+.item {
+  background: var(--bg-card);
+  border: 1px solid #2b2b2b;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+  transition: transform .2s,border-color .2s;
+}
+.item:hover { transform: translateY(-3px); border-color: #5a392e; }
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+}
+.item h3 { font: 600 1.23rem Oswald,sans-serif; line-height: 1.25; }
+.price { color: var(--orange); font-weight: 700; white-space: nowrap; }
+.item p { font-size: .9rem; color: var(--muted); margin-top: 9px; }
+.note { font-size: .8rem; color: #ffb39b; margin-top: 9px; }
+.panel { display: none; }
+.panel.active { display: block; }
+.notice {
+  margin: 18px 0 0;
+  padding: 16px;
+  border: 1px solid #4b342b;
+  border-radius: 6px;
+  color: #ddd;
+  background: #1b1715;
+  font-size: .9rem;
+}
+footer {
+  text-align: center;
+  padding: 38px 20px;
+  background: #090909;
+  border-top: 2px solid #252525;
+  color: var(--muted);
+  font-size: .9rem;
+}
+footer strong { font: 600 1.35rem Oswald,sans-serif; color: var(--orange); }
+footer p { margin: 7px; }
+@media(max-width:700px) {
+  header { align-items: flex-start; flex-direction: column; padding: 13px 18px; gap: 8px; }
+  nav { gap: 14px; }
+  nav a { font-size: 11px; }
+  .hero { min-height: 300px; }
+  .tab { padding: 9px 11px; font-size: 11px; }
+  .menu-wrap { padding-top: 38px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">WICKED WINGS</div>
+  <nav>
+    <a href="#menu">Menu</a>
+    <a href="#menu" data-open="apps">Food</a>
+    <a href="#about">Location & Info</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Fuel Your Fire. <span>Bold Flavors.</span></h1>
+  <p>Wings, burgers, pizza, and drinks — find your next favorite at Wicked Wings Kennesaw.</p>
+  <a class="jump" href="#menu">Explore the Menu</a>
+</section>
+
+<main id="menu" class="menu-wrap">
+  <h2 class="section-title">Explore Our <span>Menu</span></h2>
+  <p class="intro">Choose a category to browse food and drinks.</p>
+  <div class="tabs" role="tablist" aria-label="Menu categories" id="tabs"></div>
+  <div id="panels"></div>
+  <p class="notice">
+    Menu prices and availability may change. Wicked Shrimp and Shrimp Po Boy
+    are noted as Kennesaw-location-only items. Ask your server about allergens
+    and the current beer selection.
+  </p>
+</main>
+
+<footer id="about">
+  <p><strong>Wicked Wings Kennesaw</strong></p>
+  <p>4430 Wade Green Rd, Kennesaw, GA 30144</p>
+  <p>Open daily at 11:00 AM</p>
+  <p style="margin-top:18px;font-size:.8rem;color:#666">
+    Built for local food lovers &amp; sports fans.
+  </p>
+</footer>
+
+<script>
+const categories = [
+{
+  id: "apps",
+  label: "Apps & Starters",
+  title: "Apps & Starters",
+  items: [
+    ["Chips & Dips","Fresh fried corn tortilla chips served with queso & salsa","$9.00"],
+    ["Hand Battered Pickles","Fresh crinkle cut dill pickles, served with jalapeno ranch","$10.00"],
+    ["Jalapeno Poppers","Jalapenos stuffed with a cream cheese blend, lightly breaded & fried. Served with jalapeno ranch or sweet chili sauce.","$10.00"],
+    ["Jumbo Pretzel","Bavarian-inspired fanfare served with queso & spicy mustard","$12.00"],
+    ["Potato Skins","Melted shredded cheese & bacon, sprinkled with chives & served with sour cream","$12.00"],
+    ["Totchos","Cajun tater tots loaded with queso, bacon, sour cream, & chives","$12.00"],
+    ["Pepperoni Egg Rolls","Golden-fried egg rolls packed with pepperoni & melted mozzarella cheese, served with marinara","$12.00"],
+    ["Philly Fries","Crispy fries topped with tender shaved sirloin, grilled onions & peppers, finished with warm queso","$13.00"],
+    ["Wicked Shrimp","Crispy hand-battered shrimp, served with homemade Old Bay remoulade","$14.00","Only available at Kennesaw location"],
+    ["Cheese Curds","Crispy, buttery, garlic-fried curds served with marinara sauce","$12.00"],
+    ["Sheet Pan Nachos","Tortilla chips, queso, shredded cheese, jalapenos, black olives, salsa, & sour cream. Add chili +$2.50, beef +$4.00, chicken +$4.25, or shrimp +$6.50.","$10.00"],
+    ["Wicked Sampler","Traditional or boneless wings, tenders, pepperoni egg rolls, & potato skins. Includes up to 3 dipping sauces.","$18.00"],
+    ["Cheesy Bread","Hand-tossed dough, garlic butter, cheeses, & Italian spices, served with house-made marinara","$11.00"]
+  ]
+},
+{
+  id: "mains",
+  label: "Mains & Burgers",
+  title: "Handhelds & More",
+  items: [
+    ["Hand Battered Chicken Tenders","5 juicy tenders breaded by hand & fried to perfection, served with house-made honey mustard","$15.00"],
+    ["Wicked BLT","Smoked bacon, Romaine, & tomato, with mayo or spicy aioli on sourdough. Add chicken +$4.25.","$10.00"],
+    ["Quesadilla","Sauteed onions & peppers inside a cheesy tortilla, served with salsa & sour cream. Add chicken +$4.25 or shrimp +$6.50.","$10.00"],
+    ["Nashville Chicken Sandwich","Crispy fried chicken tossed in Nashville hot sauce, on a toasted bun with pickles & coleslaw","$16.00"],
+    ["Philly Cheesesteak","Shaved sirloin, onions & green peppers, topped with melted provolone on an Amoroso’s roll","$16.00"],
+    ["Chicken Caesar Wrap","Chopped romaine, parmesan & Caesar dressing with grilled or fried chicken","$14.00"],
+    ["Buffalo Chicken Wrap","Fried or grilled chicken, mild buffalo sauce, lettuce, tomato, onion, & ranch drizzle","$14.00"],
+    ["Steak & Cheddar Sandwich","Shaved sirloin with cheddar, sauteed onions, & spicy aioli on a brioche bun. Add mushrooms +$1.50.","$16.00"],
+    ["Shrimp Po Boy","Fried shrimp topped with Romaine, tomatoes, & Old Bay remoulade","$17.00","Only available at Kennesaw location"],
+    ["Sixes Smash Burger","Smoked bacon, cheddar, fried onion strings, spicy ranch, & a fried egg","$17.00"],
+    ["Black & Bleu Burger","Cajun-seasoned smashed patties, grilled onions, melted bleu cheese & crispy bacon","$16.00"],
+    ["Wicked Burger","Pepper Jack, fried jalapenos, tomato, & wicked mayo","$16.00"],
+    ["Patty Melt","Mayo, grilled onions, & American cheese on sourdough","$15.00"],
+    ["Classic Burger","Lettuce, tomato, onion, & pickles with house-made burger sauce","$13.00"],
+    ["Additional Burger Toppings","American, pepper Jack, cheddar, mozzarella, provolone, fried jalapenos, bacon, onions, peppers, mushrooms, fried egg, or fried onion strings","+ $1.50"]
+  ]
+},
+{
+  id: "wings",
+  label: "Wings",
+  title: "Wings",
+  items: [
+    ["Traditional Wings — 5","Choose a flavor or dry rub","$7.50"],
+    ["Traditional Wings — 10","Choose a flavor or dry rub","$15.00"],
+    ["Traditional Wings — 15","Choose a flavor or dry rub","$22.50"],
+    ["Traditional Wings — 20","Choose a flavor or dry rub","$30.00"],
+    ["Traditional Wings — 30","Choose a flavor or dry rub","$45.00"],
+    ["Boneless Wings — 5","Choose a flavor or dry rub","$7.00"],
+    ["Boneless Wings — 10","Choose a flavor or dry rub","$12.00"],
+    ["Boneless Wings — 15","Choose a flavor or dry rub","$18.00"],
+    ["Boneless Wings — 20","Choose a flavor or dry rub","$24.00"],
+    ["Boneless Wings — 30","Choose a flavor or dry rub","$35.00"],
+    ["Wing Flavors","Mild, Hot, Wicked, Nashville Hot, Wet Lemon Pepper, Hot Honey, Chipotle Citrus, Sweet Chili, Honey BBQ, Carolina Gold, House Special, Tropical Heat, Wicked Mango, Georgia Peach, Hot Garlic, Garlic Parmesan, Teriyaki, Garlic, Wickedyaki, Korean BBQ",""],
+    ["Dry Rubs","Lemon Pepper, Jerk, Cajun, Ranch Rub, Old Bay",""],
+    ["Sauce Note","Korean BBQ contains sesame.",""]
+  ]
+},
+{
+  id: "pizza",
+  label: "Pizza & Oven",
+  title: "From the Oven",
+  items: [
+    ["Caprese Flatbread","Mozzarella, tomatoes, fresh basil, & balsamic drizzle. Add grilled chicken +$2.50.","$12.00"],
+    ["Chicken Bacon Ranch Flatbread","Mozzarella, jalapenos, chicken, bacon & ranch","$14.00"],
+    ["House Stromboli / Calzone","Mozzarella, onions, green peppers, pepperoni, & sausage. No substitutions. Calzone includes ricotta.","$13.00"],
+    ["Build Your Own Stromboli / Calzone","Hand-tossed dough stuffed with mozzarella, brushed with butter & garlic, served with homemade marinara. Calzone includes ricotta.","$10.00"],
+    ["Meatlovers Pie","Pepperoni, sausage, bacon, ham, & seasoned ground beef","$22.00"],
+    ["Cheeseburger Pie","House-made burger sauce, ground beef, bacon, two kinds of cheese, & chopped dill pickles","$19.00"],
+    ["Hot Honey Pepperoni","Pepperoni with hot honey drizzle & crushed red pepper","$16.00"],
+    ["Nashville Hot Pie","Ricotta spread, fried chicken tossed in Nashville hot, mozzarella, & Nashville Hot swirl","$16.00"],
+    ["Buffalo Chicken Pie","Grilled chicken, mild buffalo sauce, & ranch dressing swirl","$16.00"],
+    ["Margherita Pie","Garlic butter, tomatoes, mozzarella, & fresh basil","$14.00"],
+    ["Supreme Pie","Pepperoni, sausage, ham, green peppers, mushrooms, onions, & black olives","$19.00"],
+    ["Create Your Pie — Hand Tossed Dough","Choose your sauce and toppings","$12.00"],
+    ["Create Your Pie — Cauliflower Crust","Choose your sauce and toppings","$11.00"],
+    ["Create Your Pie — Flatbread","Choose your sauce and toppings","$8.00"],
+    ["Create Your Pie — Pizza Bowl","Keto-friendly. Choose your sauce and toppings.","$8.00"],
+    ["Pizza Sauces","Housemade Pizza Sauce, Wicked Pizza Sauce, Ricotta Spread, Garlic Butter, BBQ, or Buffalo",""],
+    ["Standard Toppings","Sausage, pepperoni, green peppers, onion, pineapple, banana peppers, jalapenos, black olives, tomatoes, mushrooms, fresh basil, garlic, & extra cheese","+$1.50 each"],
+    ["Premium Toppings","Grilled chicken, fried chicken, ricotta, ham, bacon, Philly meat & ground beef","+$3.00 each"]
+  ]
+},
+{
+  id: "salads",
+  label: "Salads & Soups",
+  title: "Salads & Soups",
+  items: [
+    ["House Salad","Romaine, tomatoes, cucumbers, onions, cheddar jack, & croutons","$9.00"],
+    ["Caesar Salad","Romaine tossed in Caesar dressing, parmesan & croutons","$9.00"],
+    ["Farm House Salad","Crispy fried chicken, hard-boiled egg, tomatoes, cucumbers, onions, cheese, croutons, & honey mustard dressing","$14.00"],
+    ["Cobb Salad","Romaine, tomatoes, cucumbers, hard-boiled egg, bacon, & bleu cheese crumbles","$10.00"],
+    ["Homemade Bowl of Chili","Chili topped with onions, jalapenos, & cheese. Served with sour cream & crackers","$8.00"],
+    ["Soup of the Day","Ask your server what’s simmering in the kitchen today!","$8.00"],
+    ["Protein Additions","Chicken +$4.25; shrimp +$6.50. Grilled, blackened, or fried.",""],
+    ["Dressings","Ranch, Bleu Cheese, House, Balsamic Vinegar, Honey Mustard, Caesar, Jalapeno Ranch",""],
+    ["Soup Additions","Grilled cheese +$4.00; side salad or side Caesar +$4.00",""]
+  ]
+},
+{
+  id: "sides",
+  label: "Sides",
+  title: "Sides",
+  items: [
+    ["Basket of Fries","","$5.00"],
+    ["Basket of Tots","","$5.00"],
+    ["Mac & Cheese","","$5.00"],
+    ["Onion Rings","","$6.00"],
+    ["Sweet Waffle Fries","","$6.00"],
+    ["Celery & Carrots","","$3.00"],
+    ["House Salad","","$5.00"],
+    ["Caesar Salad","","$5.00"],
+    ["Pasta Salad","","$5.00"],
+    ["Cole Slaw","","$5.00"]
+  ]
+},
+{
+  id: "dessert",
+  label: "Desserts",
+  title: "Desserts",
+  items: [
+    ["Molten Lava Cake","Chocolate lava cake topped with vanilla ice cream and chocolate syrup","$8.00"],
+    ["Sweet Knots","Homemade dough knots tossed in cinnamon sugar, served with chocolate dipping sauce","$7.00"],
+    ["Root Beer Float","Abita pure cane sugar root beer served over vanilla ice cream","$7.00"],
+    ["Salted Chocolate Peanut Butter Shot","Ballotin’s chocolate peanut butter whiskey, chilled and served with a salted rim (21+)","$7.00"],
+    ["Legendary Coke Float","Legend’s “Yeah C’mon” bourbon & Coke served over vanilla ice cream (21+)",""]
+  ]
+},
+{
+  id: "beer",
+  label: "Beer",
+  title: "Beer",
+  items: [
+    ["Beer Selection","Ask your server about the current draft and bottled beer selection.","Ask server"],
+    ["Craft Beer","Rotating craft brews may be available. Ask your server for current options.","Ask server"]
+  ]
+},
+{
+  id: "wine",
+  label: "Wine",
+  title: "Wine",
+  items: [
+    ["House Cabernet","Red wine","$6.50"],
+    ["House Merlot","Red wine","$6.50"],
+    ["Alamos Malbec","Red wine","$8.50"],
+    ["Noble Vines 667 Pinot Noir","Red wine","$9.50"],
+    ["House Chardonnay","White wine","$6.50"],
+    ["House Pinot Grigio","White wine","$6.50"],
+    ["Oak Vineyards White Zinfandel","California — ripe red apple & strawberry; slightly sweet","$6.50"],
+    ["Matua Sauvignon Blanc","White wine","$8.00"],
+    ["Kendall-Jackson Chardonnay","California — medium body, fruity, and smooth","$9.00"],
+    ["Plantino Champagne","Bubbles","$6.50"],
+    ["Los Riscos Moscato","Bubbles","$6.50"]
+  ]
+},
+{
+  id: "cocktails",
+  label: "Cocktails",
+  title: "Cocktails",
+  items: [
+    ["Weekend On Wade","Captain coconut, pineapple, and grenadine.","$7.00"],
+    ["Not So Dry County","Blueberry lemonade cocktail with a Barebone vodka float.","$9.00"],
+    ["Peach Punch","Our secret recipe, but we promise you'll love it!","$7.00"],
+    ["Georgia Legend","Legend’s Yeah C’mon bourbon, peach schnapps, and OJ.","$8.00"],
+    ["Wicked Mango Rum Punch","Bacardi Mango, chile, cranberry, and a splash of soda.","$9.50"],
+    ["Wicked Paloma","Tanteo Chipotle, grapefruit, agave, and lime.","$9.00"],
+    ["Wicked Margarita","Tanteo Jalapeno with lime, or choose strawberry, peach, pineapple, or mango.","$9.50"],
+    ["Sunset Mule","White Claw Pineapple vodka, cranberry, sweet lime, and ginger beer.","$8.00"],
+    ["Legendary Mule","Legend’s Yeah C’mon bourbon, sweet lime, and ginger beer.","$8.00"],
+    ["Skinny Margarita","La Gritona, agave, and fresh-squeezed citrus.","$10.00"],
+    ["The Oasis","Lemon vodka, pineapple, and blueberry Red Bull.","$8.50"],
+    ["Fiesta Mule","Tanteo Jalapeno, sweet lime, and ginger beer.","$9.00"],
+    ["Mango Mule","Rum, mango puree, sweet lime, and ginger beer.","$8.00"]
+  ]
+},
+{
+  id: "shots",
+  label: "Shots",
+  title: "Shots",
+  items: [
+    ["Washington Apple","","$7.50"],
+    ["Salted Chocolate Peanut Butter","","$7.00"],
+    ["Haley’s OG Pickle Shot","","$4.50"],
+    ["Watermelon Mother Pucker Upper","","$7.00"],
+    ["The OJ OG Creamsicle","","$7.50"],
+    ["Pineapple Express","","$7.00"],
+    ["Strawberry Lemon Drop","","$7.50"],
+    ["Whiskey Business","","$8.00"]
+  ]
+}
+];
+
+const tabs = document.getElementById("tabs");
+const panels = document.getElementById("panels");
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;",
+    '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+
+categories.forEach((cat, i) => {
+  const button = document.createElement("button");
+  button.className = "tab" + (i === 0 ? " active" : "");
+  button.type = "button";
+  button.setAttribute("role", "tab");
+  button.setAttribute("aria-selected", i === 0 ? "true" : "false");
+  button.textContent = cat.label;
+  button.addEventListener("click", () => activate(cat.id));
+  tabs.appendChild(button);
+
+  const panel = document.createElement("section");
+  panel.className = "panel" + (i === 0 ? " active" : "");
+  panel.id = "panel-" + cat.id;
+  panel.setAttribute("role", "tabpanel");
+
+  let output = `<h3 class="category-heading">${esc(cat.title)}</h3><div class="grid">`;
+
+  cat.items.forEach(item => {
+    const [name, description, price, note] = item;
+    output += `
+      <article class="item">
+        <div class="item-top">
+          <h3>${esc(name)}</h3>
+          ${price ? `<span class="price">${esc(price)}</span>` : ""}
+        </div>
+        ${description ? `<p>${esc(description)}</p>` : ""}
+        ${note ? `<div class="note">${esc(note)}</div>` : ""}
+      </article>`;
+  });
+
+  output += "</div>";
+  panel.innerHTML = output;
+  panels.appendChild(panel);
+});
+
+function activate(id) {
+  document.querySelectorAll(".tab").forEach((button, index) => {
+    const selected = categories[index].id === id;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-selected", selected ? "true" : "false");
+  });
+
+  document.querySelectorAll(".panel").forEach(panel => {
+    panel.classList.toggle("active", panel.id === "panel-" + id);
+  });
+}
+
+document.querySelectorAll("nav a[data-open]").forEach(link => {
+  link.addEventListener("click", () => activate(link.dataset.open));
+});
+</script>
+</body>
+</html>
